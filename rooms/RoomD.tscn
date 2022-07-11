@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://rooms/assets/tileset_floating_dungeon.tres" type="TileSet" id=1]
 [ext_resource path="res://rooms/spawners/SpawnerRobot.tscn" type="PackedScene" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://rooms/assets/tileset_inivisible_walls.tres" type="TileSet" id=4]
 [ext_resource path="res://rooms/spawners/SpawnerTeleporter.tscn" type="PackedScene" id=5]
 [ext_resource path="res://rooms/spawners/SpawnerMob.tscn" type="PackedScene" id=6]
+[ext_resource path="res://pickups/lightnings_spells/PickupLightningShot.tscn" type="PackedScene" id=7]
 
 [node name="BaseRoom" type="YSort"]
 script = ExtResource( 3 )
@@ -88,3 +89,6 @@ position = Vector2( 177, 254 )
 
 [node name="SpawnerTeleporter" parent="." instance=ExtResource( 5 )]
 position = Vector2( 1280, 263 )
+
+[node name="PickupLightningShot" parent="." instance=ExtResource( 7 )]
+position = Vector2( 598, 47 )

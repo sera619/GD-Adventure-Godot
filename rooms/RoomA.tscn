@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://rooms/assets/tileset_floating_dungeon.tres" type="TileSet" id=1]
 [ext_resource path="res://rooms/spawners/SpawnerRobot.tscn" type="PackedScene" id=2]
@@ -7,8 +7,7 @@
 [ext_resource path="res://rooms/spawners/SpawnerTeleporter.tscn" type="PackedScene" id=5]
 [ext_resource path="res://pickups/ice_spells/PickupIce.tscn" type="PackedScene" id=6]
 [ext_resource path="res://rooms/spawners/SpawnerMob.tscn" type="PackedScene" id=7]
-[ext_resource path="res://rooms/spawners/spawner_mob.svg" type="Texture" id=8]
-[ext_resource path="res://rooms/spawners/spawner_pickup.svg" type="Texture" id=9]
+[ext_resource path="res://rooms/spawners/SpawnerPickup.tscn" type="PackedScene" id=8]
 
 [node name="RoomA" type="YSort"]
 script = ExtResource( 3 )
@@ -76,26 +75,21 @@ position = Vector2( 630, 1098 )
 position = Vector2( 712, 819 )
 
 [node name="SpawnerMob3" parent="Mobs" instance=ExtResource( 7 )]
-position = Vector2( 1032, 647 )
+position = Vector2( 179, 347 )
 
 [node name="SpawnerMob4" parent="Mobs" instance=ExtResource( 7 )]
 position = Vector2( 1228, 446 )
-
-[node name="SpawnerMob5" type="Sprite" parent="Mobs"]
-position = Vector2( 234, 126 )
-texture = ExtResource( 8 )
 
 [node name="Items" type="Node2D" parent="."]
 __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="SpawnerPickup" type="Sprite" parent="Items"]
-position = Vector2( 341, 1018 )
-texture = ExtResource( 9 )
-
 [node name="PickupIce" parent="Items" instance=ExtResource( 6 )]
 position = Vector2( 1287, 43 )
+
+[node name="SpawnerPickup" parent="Items" instance=ExtResource( 8 )]
+position = Vector2( 243, 982 )
 
 [node name="SpawnerRobot" parent="." instance=ExtResource( 2 )]
 position = Vector2( 678, 138 )

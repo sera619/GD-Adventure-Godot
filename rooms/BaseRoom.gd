@@ -1,26 +1,11 @@
-# This is the base script each room should use or extend.
-#
-# It takes care of spawing enemies and items, but can also optionally spawn a
-# player and a teleporter.
-#
-# It also handles hiding and showing bridges.
-#
-# Note: we would rather call this class "Room", but there is already a node
-# named Room in Godot, so we cannot use that name.
 class_name BaseRoom
 extends Node2D
 
-# Default size of the rectangle encompassing bridges drawn in the tilemap, to
-# erase the ones that don't lead to a room.
 const BRIDGES_DEFAULT_SIZE := Vector2(2, 2)
 
-# The tiles indices in the "invisible wall" tileset
 const INVISIBLE_WALL_TILE_INDEX := 1
 const INVISIBLE_LEDGE_TILE_INDEX := 0
 
-# We use Rect2 values to represents the regions of the tile map where we drew
-# bridges. This allows us to erase bridges that are outside of the game grid
-# (the ones that don't lead to a room).
 export var top_bridge := Rect2(Vector2(5, -2), BRIDGES_DEFAULT_SIZE)
 export var right_bridge := Rect2(Vector2(11, 4), BRIDGES_DEFAULT_SIZE)
 export var left_bridge := Rect2(Vector2(-2, 4), BRIDGES_DEFAULT_SIZE)
@@ -35,11 +20,6 @@ onready var _spawner_teleporter := $SpawnerTeleporter
 
 
 func _ready() -> void:
-	# If we instantiate this room in another scene, we want the other scene to
-	# manage the robot and the teleporter.
-	#
-	# But if we run the room scene directly with F6, we want to spawn the player
-	# and teleporter to test the room.
 	var is_main_scene = get_tree().current_scene == self
 	if is_main_scene:
 		spawn_robot()
