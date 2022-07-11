@@ -1,0 +1,90 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://rooms/assets/tileset_floating_dungeon.tres" type="TileSet" id=1]
+[ext_resource path="res://rooms/spawners/SpawnerRobot.tscn" type="PackedScene" id=2]
+[ext_resource path="res://rooms/BaseRoom.gd" type="Script" id=3]
+[ext_resource path="res://rooms/assets/tileset_inivisible_walls.tres" type="TileSet" id=4]
+[ext_resource path="res://rooms/spawners/SpawnerTeleporter.tscn" type="PackedScene" id=5]
+[ext_resource path="res://rooms/spawners/SpawnerMob.tscn" type="PackedScene" id=6]
+
+[node name="BaseRoom" type="YSort"]
+script = ExtResource( 3 )
+
+[node name="bridges" type="TileMap" parent="."]
+z_index = -10
+tile_set = ExtResource( 1 )
+cell_size = Vector2( 128, 128 )
+format = 1
+tile_data = PoolIntArray( -131067, 5, 4, -131066, 5, 4, -65531, 5, 4, -65530, 5, 4, 327678, 5, 2, 327679, 5, 2, 262155, 5, 2, 262156, 5, 2, 393214, 5, 2, 393215, 5, 2, 327691, 5, 2, 327692, 5, 2, 720901, 6, 0, 720902, 6, 0, 786437, 5, 4, 786438, 5, 4 )
+
+[node name="Floor" type="TileMap" parent="."]
+position = Vector2( 0, -1 )
+z_index = -10
+tile_set = ExtResource( 1 )
+cell_size = Vector2( 128, 128 )
+cell_quadrant_size = 64
+cell_clip_uv = true
+collision_layer = 2
+collision_mask = 15
+format = 1
+tile_data = PoolIntArray( 0, 3, 0, 1, 3, 65536, 2, 3, 65536, 3, 3, 65536, 4, 3, 65536, 5, 3, 65536, 6, 3, 65536, 7, 3, 65536, 8, 3, 65536, 9, 3, 65536, 10, 3, 2, 65536, 3, 65536, 65537, 3, 131072, 65538, 3, 65538, 65539, 3, 196608, 65540, 3, 131072, 65541, 3, 196608, 65542, 3, 65538, 65543, 3, 65536, 65544, 3, 196610, 65545, 3, 131072, 65546, 3, 65536, 131072, 3, 65539, 131073, 3, 196612, 131074, 3, 262145, 131075, 3, 262145, 131076, 3, 196612, 131077, 3, 131076, 131078, 3, 262148, 131079, 3, 65536, 131080, 3, 65538, 131081, 3, 196608, 131082, 3, 65536, 196615, 3, 65536, 196616, 3, 196609, 196617, 3, 196609, 196618, 3, 65536, 327679, 3, 0, 262144, 3, 65536, 262145, 3, 65536, 262146, 3, 65536, 262147, 3, 65536, 262148, 3, 65536, 262149, 3, 65536, 262150, 3, 65536, 262151, 3, 65536, 262152, 3, 131072, 262153, 3, 65536, 262154, 3, 65536, 393215, 3, 262147, 327680, 3, 65536, 327681, 3, 131072, 327682, 3, 196609, 327683, 3, 131072, 327684, 3, 65538, 327685, 3, 65536, 327686, 3, 65536, 327687, 3, 131075, 327688, 3, 262145, 327689, 3, 65536, 327690, 3, 65536, 393216, 3, 262147, 393217, 3, 262148, 393218, 3, 65540, 393219, 3, 131076, 393220, 3, 65540, 393221, 3, 131076, 393222, 3, 262149, 393225, 3, 65536, 393226, 3, 65536, 458760, 3, 0, 458761, 3, 65536, 458762, 3, 65536, 524288, 3, 0, 524289, 3, 65536, 524290, 3, 65536, 524291, 3, 65536, 524292, 3, 65536, 524293, 3, 65536, 524294, 3, 65536, 524295, 3, 65536, 524296, 3, 65536, 524297, 3, 131074, 524298, 3, 65536, 589824, 3, 65536, 589825, 3, 65538, 589826, 3, 131072, 589827, 3, 131072, 589828, 3, 65538, 589829, 3, 65538, 589830, 3, 196609, 589831, 3, 65536, 589832, 3, 131075, 589833, 3, 262145, 589834, 3, 262149, 655360, 3, 65539, 655361, 3, 262148, 655362, 3, 131076, 655363, 3, 131076, 655364, 3, 262145, 655365, 3, 196612, 655366, 3, 131075, 655367, 3, 65541 )
+
+[node name="Details" type="TileMap" parent="."]
+position = Vector2( 0, -1 )
+z_index = -10
+tile_set = ExtResource( 1 )
+cell_size = Vector2( 128, 128 )
+cell_quadrant_size = 64
+cell_clip_uv = true
+collision_layer = 2
+collision_mask = 15
+format = 1
+
+[node name="Walls" type="TileMap" parent="."]
+z_index = -5
+tile_set = ExtResource( 1 )
+cell_size = Vector2( 128, 128 )
+cell_quadrant_size = 64
+cell_tile_origin = 2
+cell_y_sort = true
+cell_clip_uv = true
+collision_layer = 16
+collision_mask = 0
+format = 1
+tile_data = PoolIntArray( 1, 1, 65540, 2, 1, 262145, 3, 1, 65541, 9, 1, 131077, 65538, 1, 327684, 196615, 1, 196611, 196616, 1, 196609, 196617, 1, 5, 327682, 1, 4, 327683, 1, 5, 524297, 1, 131077, 589825, 1, 4, 589826, 1, 5 )
+
+[node name="Limits" type="TileMap" parent="."]
+tile_set = ExtResource( 4 )
+cell_size = Vector2( 128, 128 )
+collision_layer = 32
+collision_mask = 0
+format = 1
+tile_data = PoolIntArray( -131068, 1, 0, -131065, 1, 0, -1, 1, 0, -65536, 1, 0, -65535, 1, 0, -65534, 1, 0, -65533, 1, 0, -65532, 1, 0, -65529, 1, 0, -65528, 1, 0, -65527, 1, 0, -65526, 1, 0, -65525, 1, 0, 65535, 1, 0, 11, 1, 0, 131071, 1, 0, 65547, 1, 0, 196607, 1, 0, 131072, 0, 0, 131073, 0, 0, 131074, 0, 0, 131075, 0, 0, 131076, 0, 0, 131077, 0, 0, 131078, 0, 0, 131083, 1, 0, 262142, 1, 0, 262143, 1, 0, 196608, 1, 0, 196609, 1, 0, 196610, 1, 0, 196611, 1, 0, 196612, 1, 0, 196613, 1, 0, 196614, 1, 0, 196619, 1, 0, 196620, 1, 0, 327687, 0, 0, 327688, 0, 0, 458750, 1, 0, 458751, 1, 0, 393216, 0, 0, 393217, 0, 0, 393218, 0, 0, 393219, 0, 0, 393220, 0, 0, 393221, 0, 0, 393222, 0, 0, 393223, 1, 0, 393224, 1, 0, 393227, 1, 0, 393228, 1, 0, 524287, 1, 0, 458752, 1, 0, 458753, 1, 0, 458754, 1, 0, 458755, 1, 0, 458756, 1, 0, 458757, 1, 0, 458758, 1, 0, 458759, 1, 0, 458763, 1, 0, 589823, 1, 0, 524299, 1, 0, 655359, 1, 0, 589832, 0, 0, 589833, 0, 0, 589834, 0, 0, 589835, 1, 0, 720895, 1, 0, 655360, 0, 0, 655361, 0, 0, 655362, 0, 0, 655363, 0, 0, 655364, 0, 0, 655367, 0, 0, 655368, 1, 0, 655369, 1, 0, 655370, 1, 0, 655371, 1, 0, 786431, 1, 0, 720896, 1, 0, 720897, 1, 0, 720898, 1, 0, 720899, 1, 0, 720900, 1, 0, 720903, 1, 0, 720904, 1, 0, 786436, 1, 0, 786439, 1, 0 )
+
+[node name="Mobs" type="Node2D" parent="."]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="SpawnerMob" parent="Mobs" instance=ExtResource( 6 )]
+position = Vector2( 180, 610 )
+
+[node name="SpawnerMob2" parent="Mobs" instance=ExtResource( 6 )]
+position = Vector2( 538, 1188 )
+
+[node name="SpawnerMob3" parent="Mobs" instance=ExtResource( 6 )]
+position = Vector2( 1289, 928 )
+
+[node name="SpawnerMob4" parent="Mobs" instance=ExtResource( 6 )]
+position = Vector2( 993, 156 )
+
+[node name="Items" type="Node2D" parent="."]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="SpawnerRobot" parent="." instance=ExtResource( 2 )]
+position = Vector2( 177, 254 )
+
+[node name="SpawnerTeleporter" parent="." instance=ExtResource( 5 )]
+position = Vector2( 1280, 263 )

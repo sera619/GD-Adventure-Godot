@@ -1,0 +1,11 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://rooms/spawners/Spawner.tscn" type="PackedScene" id=1]
+[ext_resource path="res://rooms/spawners/spawner_mob.svg" type="Texture" id=2]
+[ext_resource path="res://mobs/bomb/Bomb.tscn" type="PackedScene" id=3]
+[ext_resource path="res://mobs/sword/Sword.tscn" type="PackedScene" id=4]
+[ext_resource path="res://mobs/shield/Shield.tscn" type="PackedScene" id=5]
+
+[node name="SpawnerMob" instance=ExtResource( 1 )]
+texture = ExtResource( 2 )
+list = [ ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ) ]
