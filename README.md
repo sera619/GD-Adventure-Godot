@@ -18,6 +18,6 @@
 
 ## Preview ##
 
-![menu preview](https://github.com/sera619/GD-Adventure-Godot/blob/master/external/Sample2.png?raw=true)
+![menu preview](https://github.com/sera619/GD-Adventure-Godot/blob/master/external/Sample2png.png?raw=true)
 
 ![preview Image](https://github.com/sera619/GD-Adventure-Godot/blob/master/external/Sample1.png?raw=true)
