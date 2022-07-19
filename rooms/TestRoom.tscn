@@ -1,8 +1,8 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://rooms/assets/tileset_floating_dungeon.tres" type="TileSet" id=1]
 [ext_resource path="res://robot/Robot.tscn" type="PackedScene" id=2]
-[ext_resource path="res://pickups/ice_spells/PickupIce.tscn" type="PackedScene" id=3]
+[ext_resource path="res://pickups/ice_spells/PickupIcePunch.tscn" type="PackedScene" id=3]
 [ext_resource path="res://rooms/assets/tileset_inivisible_walls.tres" type="TileSet" id=4]
 [ext_resource path="res://mobs/dummy/Dummy.tscn" type="PackedScene" id=5]
 [ext_resource path="res://pickups/fire_spells/PickupRapid.tscn" type="PackedScene" id=6]
@@ -12,9 +12,19 @@
 [ext_resource path="res://pickups/health/PickupHealth.tscn" type="PackedScene" id=10]
 [ext_resource path="res://pickups/lightnings_spells/PickupLightningShot.tscn" type="PackedScene" id=11]
 [ext_resource path="res://pickups/fire_spells/PickupFireSpray.tscn" type="PackedScene" id=12]
+[ext_resource path="res://pickups/speed/PickupSpeed.tscn" type="PackedScene" id=13]
+[ext_resource path="res://interface/OnScreenUI.tscn" type="PackedScene" id=14]
+[ext_resource path="res://interface/Pause.tscn" type="PackedScene" id=15]
 
 [node name="TestRoom" type="YSort"]
 script = ExtResource( 9 )
+
+[node name="UILayer" type="CanvasLayer" parent="."]
+
+[node name="OnScreenUI" parent="UILayer" instance=ExtResource( 14 )]
+
+[node name="PauseScreen" parent="UILayer" instance=ExtResource( 15 )]
+visible = false
 
 [node name="bridges" type="TileMap" parent="."]
 z_index = -10
@@ -76,8 +86,11 @@ __meta__ = {
 [node name="SpawnerMob" parent="Mobs" instance=ExtResource( 8 )]
 position = Vector2( 872, 755 )
 
-[node name="PickupHealth" parent="Mobs" instance=ExtResource( 10 )]
-position = Vector2( 157, 265 )
+[node name="SpawnerMob2" parent="Mobs" instance=ExtResource( 8 )]
+position = Vector2( 1257, 717 )
+
+[node name="SpawnerMob3" parent="Mobs" instance=ExtResource( 8 )]
+position = Vector2( 907, 1115 )
 
 [node name="Items" type="Node2D" parent="."]
 __meta__ = {
@@ -98,6 +111,12 @@ position = Vector2( 106, 604 )
 
 [node name="PickupFireSpray" parent="Items" instance=ExtResource( 12 )]
 position = Vector2( 337, 744 )
+
+[node name="PickupSpeed" parent="Items" instance=ExtResource( 13 )]
+position = Vector2( 784, 418 )
+
+[node name="PickupHealth" parent="Items" instance=ExtResource( 10 )]
+position = Vector2( 157, 265 )
 
 [node name="Label" type="Label" parent="."]
 margin_left = -548.0

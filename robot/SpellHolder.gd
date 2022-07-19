@@ -45,6 +45,7 @@ func set_spell_scene(scene: PackedScene) -> void:
 
 		spell = new_spell
 		_spell_spawning_point.add_child(spell)
+		Events.emit_signal("selected_spell_changed", spell.spell_type)
 
 
 func _disable() -> void:

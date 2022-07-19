@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://robot/Skin.gd" type="Script" id=1]
 [ext_resource path="res://robot/robot_sprites.png" type="Texture" id=2]
@@ -289,6 +289,62 @@ scale_random = 0.5
 scale_curve = SubResource( 13 )
 color_ramp = SubResource( 11 )
 
+[sub_resource type="Animation" id=17]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=18]
+resource_name = "SpeedBuffEffect"
+length = 1.5
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.7 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 0.968627, 0.909804, 0.0196078, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.7 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 1.1, 1.1 ) ]
+}
+
 [node name="Robot" type="KinematicBody2D"]
 collision_mask = 50
 script = ExtResource( 6 )
@@ -349,3 +405,12 @@ bus = "SFX"
 [node name="DeathAudio" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 8 )
 bus = "SFX"
+
+[node name="SpeedTimer" type="Timer" parent="."]
+wait_time = 4.0
+one_shot = true
+
+[node name="BuffEffects" type="AnimationPlayer" parent="."]
+root_node = NodePath("../Skin")
+anims/RESET = SubResource( 17 )
+anims/SpeedBuffEffect = SubResource( 18 )

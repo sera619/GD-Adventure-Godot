@@ -19,11 +19,6 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://bullets/Bullet.gd"
 }, {
-"base": "Spell",
-"class": "IcePunshSpell",
-"language": "GDScript",
-"path": "res://spells/ice_punch/SpellIcePunsh.gd"
-}, {
 "base": "KinematicBody2D",
 "class": "Mob",
 "language": "GDScript",
@@ -33,6 +28,11 @@ _global_script_classes=[ {
 "class": "MobShield",
 "language": "GDScript",
 "path": "res://mobs/shield/Shield.gd"
+}, {
+"base": "CanvasLayer",
+"class": "MobileController",
+"language": "GDScript",
+"path": "res://interface/ui_elements/MobileController.gd"
 }, {
 "base": "Area2D",
 "class": "Pickup",
@@ -48,6 +48,11 @@ _global_script_classes=[ {
 "class": "Robot",
 "language": "GDScript",
 "path": "res://robot/Robot.gd"
+}, {
+"base": "HBoxContainer",
+"class": "SelectedSpellIcon",
+"language": "GDScript",
+"path": "res://interface/ui_elements/SelectedSpellIcon.gd"
 }, {
 "base": "Camera2D",
 "class": "ShakingCamera2D",
@@ -80,6 +85,11 @@ _global_script_classes=[ {
 "path": "res://robot/SpellHolder.gd"
 }, {
 "base": "Spell",
+"class": "SpellIcePunch",
+"language": "GDScript",
+"path": "res://spells/ice_punch/SpellIcePunch.gd"
+}, {
+"base": "Spell",
 "class": "SpellLightning",
 "language": "GDScript",
 "path": "res://spells/lightning_shot/SpellLightningShot.gd"
@@ -107,18 +117,20 @@ _global_script_classes=[ {
 _global_script_class_icons={
 "BaseRoom": "",
 "Bullet": "",
-"IcePunshSpell": "",
 "Mob": "",
 "MobShield": "",
+"MobileController": "",
 "Pickup": "",
 "RandomAudioPlayer": "",
 "Robot": "",
+"SelectedSpellIcon": "",
 "ShakingCamera2D": "",
 "Spawner": "",
 "Spell": "",
 "SpellBasicFire": "",
 "SpellFire": "",
 "SpellHolder": "",
+"SpellIcePunch": "",
 "SpellLightning": "",
 "SpellRapidFire": "",
 "SwordMob": "",
@@ -129,7 +141,7 @@ _global_script_class_icons={
 [application]
 
 config/name="GD-Adventure"
-run/main_scene="res://game/Main.tscn"
+run/main_scene="res://interface/MainMenu.tscn"
 config/icon="res://icon.png"
 
 [autoload]
@@ -271,6 +283,10 @@ pause_toggle={
 , Object(InputEventJoypadButton,"resource_local_to_scene":false,"resource_name":"","device":0,"button_index":11,"pressure":0.0,"pressed":false,"script":null)
  ]
 }
+
+[input_devices]
+
+pointing/emulate_touch_from_mouse=true
 
 [layer_names]
 

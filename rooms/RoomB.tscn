@@ -85,7 +85,7 @@ position = Vector2( 1250, 931 )
 position = Vector2( 698, 726 )
 
 [node name="SpawnerMob9" parent="Mobs" instance=ExtResource( 7 )]
-position = Vector2( 1564, 1157 )
+position = Vector2( 475, 1015 )
 
 [node name="Items" type="Node2D" parent="."]
 __meta__ = {
@@ -97,7 +97,7 @@ position = Vector2( 1272, 665 )
 list = [ ExtResource( 6 ) ]
 
 [node name="PickupLightningShot" parent="Items" instance=ExtResource( 9 )]
-position = Vector2( 1152, 213 )
+position = Vector2( 642, 231 )
 
 [node name="SpawnerRobot" parent="." instance=ExtResource( 2 )]
 position = Vector2( 188, 338 )

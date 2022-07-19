@@ -24,20 +24,23 @@ export(float, 0.01, 1.0) var drag_factor := 0.12
 # max_health or below 0.
 var health := max_health setget set_health
 var velocity := Vector2.ZERO
-
+var normal_speed
 onready var _camera: ShakingCamera2D = $ShakingCamera2D
 onready var _damage_audio = $DamageAudio
 onready var _death_audio = $DeathAudio
 onready var _skin := $Skin
 onready var _smoke_particles := $SmokeParticles
 onready var _spell_holder := $SpellHolder
+onready var _speed_timer := $SpeedTimer
+onready var _buff_effects := $BuffEffects
 
 
 func _ready() -> void:
+	normal_speed = speed
 	# When the death audio finished playing, we go to the game over screen by
 	# calling get_tree().change_scene().
 	_death_audio.connect("finished", get_tree(), "change_scene", ["res://interface/GameOver.tscn"])
-
+	_speed_timer.connect("timeout", self, "_reset_speed")
 
 # This is the same steering movement code you used since the start of the
 # course.
@@ -60,10 +63,20 @@ func set_health(new_health: int) -> void:
 func teleport() -> void:
 	get_tree().change_scene("res://interface/WinGame.tscn")
 
+func speed_boost(new_speed: int) -> void:
+	_buff_effects.play("SpeedBuffEffect")
+	_speed_timer.start(4.0)
+	Events.emit_signal("player_buff_active", 4.0, "speed")
+	speed = new_speed
+
+func _reset_speed() -> void:
+	_buff_effects.play("RESET")
+	speed = normal_speed
 
 # Called by enemy bullets when they hit the robot.
 func take_damage(amount: int) -> void:
 	if health <= 0:
+		
 		return
 
 	set_health(health - amount)
@@ -71,6 +84,7 @@ func take_damage(amount: int) -> void:
 	# If the health is lower or equal to zero, we're dead, so we disable
 	# movement.
 	if health <= 0:
+		Events.emit_signal("player_died")
 		_disable()
 		# We play the death animation and sound too.
 		_skin.die()

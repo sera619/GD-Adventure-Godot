@@ -23,6 +23,8 @@ export (float, 100.0, 3000.0, 1.0) var max_bullet_speed := 1500.0
 # The firing rate of bullets
 export var fire_rate := 3.0
 
+export (int, 1, 3) var spell_type := 1
+
 onready var _audio := $AudioStreamPlayer2D
 # The cool down timer can be used to prevent firing very rapidly
 onready var _cooldown_timer := $CoolDownTimer

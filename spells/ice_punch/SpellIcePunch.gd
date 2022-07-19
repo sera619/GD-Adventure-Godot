@@ -1,5 +1,5 @@
 extends Spell
-class_name IcePunshSpell
+class_name SpellIcePunch
 
 var spell_time = 3
 

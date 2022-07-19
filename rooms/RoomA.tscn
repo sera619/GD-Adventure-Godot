@@ -5,7 +5,7 @@
 [ext_resource path="res://rooms/BaseRoom.gd" type="Script" id=3]
 [ext_resource path="res://rooms/assets/tileset_inivisible_walls.tres" type="TileSet" id=4]
 [ext_resource path="res://rooms/spawners/SpawnerTeleporter.tscn" type="PackedScene" id=5]
-[ext_resource path="res://pickups/ice_spells/PickupIce.tscn" type="PackedScene" id=6]
+[ext_resource path="res://pickups/ice_spells/PickupIcePunch.tscn" type="PackedScene" id=6]
 [ext_resource path="res://rooms/spawners/SpawnerMob.tscn" type="PackedScene" id=7]
 [ext_resource path="res://rooms/spawners/SpawnerPickup.tscn" type="PackedScene" id=8]
 

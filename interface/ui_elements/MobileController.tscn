@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://interface/ui_elements/icons/AnalogStick-outer.png" type="Texture" id=1]
+[ext_resource path="res://interface/ui_elements/MobileController.gd" type="Script" id=2]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 260.0
+
+[node name="MobileController" type="CanvasLayer"]
+script = ExtResource( 2 )
+
+[node name="TouchScreenButton" type="TouchScreenButton" parent="."]
+position = Vector2( 20, 676 )
+scale = Vector2( 0.75, 0.75 )
+normal = ExtResource( 1 )
+shape = SubResource( 1 )

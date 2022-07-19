@@ -14,8 +14,11 @@ var paused: bool = false setget set_paused
 func _ready():
 	_button_continue.connect("pressed", self, "set_paused", [false])
 	_button_restart.connect("pressed", self, "_restart_game")
-	_button_quit.connect("pressed", get_tree(), "quit")
+	_button_quit.connect("pressed", self, "quit_game")
 
+func quit_game():
+	Events.emit_signal("player_died")
+	get_tree().change_scene("res://interface/MainMenu.tscn")
 
 func _restart_game() -> void:
 	set_paused(false)

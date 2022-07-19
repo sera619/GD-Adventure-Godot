@@ -11,3 +11,5 @@ func _on_spell_holder_pickup(holder: SpellHolder) -> void:
 	holder.set_spell_scene(spell_scene)
 	_disable()
 	_animation_player.play("destroy")
+	if spell_scene.get_instance_id() == 1481:
+		Events.emit_signal("selected_spell_changed", 2)

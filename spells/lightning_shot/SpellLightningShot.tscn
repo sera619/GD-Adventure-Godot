@@ -11,6 +11,7 @@ script = ExtResource( 5 )
 bullet_scene = ExtResource( 4 )
 max_bullet_speed = 2500.0
 fire_rate = 2.0
+spell_type = 3
 
 [node name="AudioStreamPlayer2D" parent="." index="0"]
 stream = ExtResource( 2 )

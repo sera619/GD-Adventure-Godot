@@ -91,7 +91,7 @@ __meta__ = {
 }
 
 [node name="PickupFireSpray" parent="Items" instance=ExtResource( 7 )]
-position = Vector2( 263, 87 )
+position = Vector2( 858, 76 )
 
 [node name="SpawnerRobot" parent="." instance=ExtResource( 2 )]
 position = Vector2( 1252, 87 )
