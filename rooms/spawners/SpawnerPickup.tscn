@@ -1,5 +1,6 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
+[ext_resource path="res://pickups/shield/PickupShield.tscn" type="PackedScene" id=1]
 [ext_resource path="res://rooms/spawners/Spawner.tscn" type="PackedScene" id=3]
 [ext_resource path="res://rooms/spawners/spawner_pickup.svg" type="Texture" id=5]
 [ext_resource path="res://pickups/health/PickupHealth.tscn" type="PackedScene" id=6]
@@ -7,4 +8,4 @@
 
 [node name="SpawnerPickup" instance=ExtResource( 3 )]
 texture = ExtResource( 5 )
-list = [ ExtResource( 6 ), ExtResource( 7 ) ]
+list = [ ExtResource( 6 ), ExtResource( 7 ), ExtResource( 1 ) ]

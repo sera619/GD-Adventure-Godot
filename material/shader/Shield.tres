@@ -1,0 +1,16 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=2]
+
+[ext_resource path="res://material/shader/ForceFieldShader.tres" type="Shader" id=1]
+
+[resource]
+resource_local_to_scene = true
+shader = ExtResource( 1 )
+shader_param/scale = 60.0
+shader_param/pulsating = true
+shader_param/shield_color = Color( 0, 0.835294, 1, 1 )
+shader_param/damage_color = Color( 0.854902, 0.976471, 0, 1 )
+shader_param/center = Vector2( 0, 0 )
+shader_param/force = 0.5
+shader_param/size = 0.0
+shader_param/thickness = 0.58
+shader_param/intense_multiplier = 4.0

@@ -1,0 +1,48 @@
+[gd_resource type="Shader" format=2]
+
+[resource]
+code = "shader_type canvas_item;
+
+uniform float scale: hint_range(10, 100);
+uniform bool pulsating = false;
+uniform vec4 shield_color: hint_color;
+uniform vec4 damage_color: hint_color;
+
+uniform vec2 center;
+uniform float force;
+uniform float size;
+uniform float thickness;
+uniform float intense_multiplier = 2.0;
+
+
+
+void fragment(){
+	vec2 modifieduv = UV - 0.5;
+	vec2 local_uv;
+	if (pulsating){
+		local_uv =  0.2 * sin(TIME) * cos(TIME) + vec2(fract((modifieduv * length(modifieduv)) * scale)) - 0.5;
+	}else{
+		local_uv = vec2(fract((modifieduv * length(modifieduv)) * scale)) - 0.5;
+	}
+	float d = length(local_uv);
+	
+	
+	float large_dist = length(modifieduv);
+	float grid_dist = length(local_uv);
+	float grid_alpha = smoothstep(0.1, 0.65, grid_dist) *(smoothstep(0.5, 0.49, large_dist) * smoothstep(0.25, 0.5, large_dist)); 
+	// mix in reflections
+	float uv_height = SCREEN_PIXEL_SIZE.y / TEXTURE_PIXEL_SIZE.y;
+	vec2 shield_uv = vec2(SCREEN_UV.x, SCREEN_UV.y + uv_height * UV.y);
+	
+	// shockwave calc
+	float mask = smoothstep(size, size - 0.1, length(modifieduv -center)) * smoothstep(size - thickness - 0.1, size - thickness, length(modifieduv - center));
+	vec2 distortion = normalize(UV - center) * force * mask;
+	
+	// add color
+	vec4 shield_color_distorted = mix(shield_color, damage_color, mask);
+	
+	vec3 final_color = mix(shield_color_distorted.rgb, texture(SCREEN_TEXTURE, shield_uv - distortion).rgb, 0.9);
+	float final_alpha = grid_alpha * intense_multiplier;
+	
+	COLOR = vec4(final_color, final_alpha);
+}"

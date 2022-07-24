@@ -14,6 +14,7 @@ extends KinematicBody2D
 
 # This controls both the character's maximum and starting health.
 export var max_health := 5
+export var max_shield := 5
 # The character's speed in pixels per second.
 export var speed := 650.0
 # Controls how quickly the body reaches its desired velocity. A value of 1 makes
@@ -33,6 +34,7 @@ onready var _smoke_particles := $SmokeParticles
 onready var _spell_holder := $SpellHolder
 onready var _speed_timer := $SpeedTimer
 onready var _buff_effects := $BuffEffects
+onready var _shield_holder := $Shield
 
 
 func _ready() -> void:
@@ -52,10 +54,14 @@ func _physics_process(_delta: float) -> void:
 	velocity = move_and_slide(velocity, Vector2.ZERO)
 	_smoke_particles.emitting = velocity.length() > speed / 2.0
 
-
+	
+	
 # Health setter, we make sure health is always between 0 and max
 func set_health(new_health: int) -> void:
 	health = clamp(new_health, 0, max_health)
+
+func activate_shield():
+	_shield_holder.set_shield_active(true)
 
 
 # Called by the Teleport node when we walk over it. This jumps to the win screen
@@ -75,6 +81,8 @@ func _reset_speed() -> void:
 
 # Called by enemy bullets when they hit the robot.
 func take_damage(amount: int) -> void:
+	if _shield_holder.is_shield_active():
+		return
 	if health <= 0:
 		
 		return
@@ -101,3 +109,6 @@ func _disable() -> void:
 	set_physics_process(false)
 	collision_layer = 0
 	collision_mask = 0
+
+
+

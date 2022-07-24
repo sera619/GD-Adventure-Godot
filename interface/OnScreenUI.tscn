@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://interface/ui_elements/HealthBar.tscn" type="PackedScene" id=1]
 [ext_resource path="res://interface/ui_elements/BuffMonitor.tscn" type="PackedScene" id=2]
 [ext_resource path="res://interface/OnScreenUI.gd" type="Script" id=3]
 [ext_resource path="res://interface/theme/Interface.theme" type="Theme" id=4]
 [ext_resource path="res://interface/ui_elements/SelectedSpellIcon.tscn" type="PackedScene" id=5]
+[ext_resource path="res://interface/ui_elements/ShieldBar.tscn" type="PackedScene" id=6]
 
 [node name="OnScreenUI" type="Control"]
 anchor_right = 1.0
@@ -33,7 +34,15 @@ valign = 1
 [node name="BuffMonitor" parent="." instance=ExtResource( 2 )]
 
 [node name="SelectedSpellIcon" parent="." instance=ExtResource( 5 )]
-margin_left = 24.0
-margin_top = 102.0
-margin_right = 323.0
-margin_bottom = 199.0
+margin_left = 1385.0
+margin_top = 11.0
+margin_right = 1684.0
+margin_bottom = 108.0
+
+[node name="ShieldBar" parent="." instance=ExtResource( 6 )]
+margin_left = 21.0
+margin_top = 86.0
+margin_right = 385.0
+margin_bottom = 140.0
+custom_constants/separation = 8
+shield = 5

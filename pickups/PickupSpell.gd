@@ -8,8 +8,9 @@ export var spell_scene: PackedScene
 func _on_spell_holder_pickup(holder: SpellHolder) -> void:
 	# We use the "set_spell_scene" method to pass our spell_scene to the
 	# player's spell holder.
-	holder.set_spell_scene(spell_scene)
-	_disable()
-	_animation_player.play("destroy")
-	if spell_scene.get_instance_id() == 1481:
-		Events.emit_signal("selected_spell_changed", 2)
+	if not holder == null:
+		holder.set_spell_scene(spell_scene)
+		_disable()
+		_animation_player.play("destroy")
+		if spell_scene.get_instance_id() == 1481:
+			Events.emit_signal("selected_spell_changed", 2)

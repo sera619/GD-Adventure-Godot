@@ -5,12 +5,16 @@ signal player_health_changed(new_health)
 signal player_buff_active(bufftime, bufftype)
 signal selected_spell_changed(new_selected_spell_scene)
 signal save_game(player_score)
+signal player_shield_active
+signal player_shield_changed(new_charges)
 signal player_died
+
+var next_level: bool = false
 
 var current_score: int
 var highscore_name: String
 var current_player: String
-const game_version = '1.2.5'
+const game_version = '1.3.5'
 const Save_File = "user://game-data.save"
 
 func _ready():

@@ -253,7 +253,7 @@ tracks/4/keys = {
 "values": [ true ]
 }
 
-[node name="Pickup" type="Area2D"]
+[node name="Pickup" type="Area2D" groups=["pickup"]]
 collision_layer = 0
 monitorable = false
 script = ExtResource( 1 )

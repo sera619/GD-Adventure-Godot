@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://robot/Skin.gd" type="Script" id=1]
 [ext_resource path="res://robot/robot_sprites.png" type="Texture" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://props/shadow/Shadow.tscn" type="PackedScene" id=7]
 [ext_resource path="res://robot/death_03.wav" type="AudioStream" id=8]
 [ext_resource path="res://spells/fire_basic/SpellBasicFire.tscn" type="PackedScene" id=9]
+[ext_resource path="res://buffs/shield/Shield.tscn" type="PackedScene" id=10]
 [ext_resource path="res://robot/smoke.png" type="Texture" id=17]
 
 [sub_resource type="Animation" id=5]
@@ -364,7 +365,7 @@ anims/RESET = SubResource( 5 )
 anims/die = SubResource( 7 )
 anims/hover = SubResource( 6 )
 
-[node name="SpellHolder" type="Area2D" parent="."]
+[node name="SpellHolder" type="Area2D" parent="." groups=["spellholder"]]
 position = Vector2( 0, -36 )
 collision_mask = 0
 monitoring = false
@@ -414,3 +415,7 @@ one_shot = true
 root_node = NodePath("../Skin")
 anims/RESET = SubResource( 17 )
 anims/SpeedBuffEffect = SubResource( 18 )
+
+[node name="Shield" parent="." instance=ExtResource( 10 )]
+position = Vector2( 0, -41 )
+scale = Vector2( 2.5, 2.5 )

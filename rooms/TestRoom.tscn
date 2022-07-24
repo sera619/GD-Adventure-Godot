@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://rooms/assets/tileset_floating_dungeon.tres" type="TileSet" id=1]
 [ext_resource path="res://robot/Robot.tscn" type="PackedScene" id=2]
@@ -15,6 +15,7 @@
 [ext_resource path="res://pickups/speed/PickupSpeed.tscn" type="PackedScene" id=13]
 [ext_resource path="res://interface/OnScreenUI.tscn" type="PackedScene" id=14]
 [ext_resource path="res://interface/Pause.tscn" type="PackedScene" id=15]
+[ext_resource path="res://pickups/shield/PickupShield.tscn" type="PackedScene" id=16]
 
 [node name="TestRoom" type="YSort"]
 script = ExtResource( 9 )
@@ -117,6 +118,9 @@ position = Vector2( 784, 418 )
 
 [node name="PickupHealth" parent="Items" instance=ExtResource( 10 )]
 position = Vector2( 157, 265 )
+
+[node name="PickupShield" parent="Items" instance=ExtResource( 16 )]
+position = Vector2( 403, 196 )
 
 [node name="Label" type="Label" parent="."]
 margin_left = -548.0

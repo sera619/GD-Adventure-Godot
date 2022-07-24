@@ -77,6 +77,10 @@ func is_ready_to_attack() -> bool:
 		and _before_attack_timer.is_stopped()
 	)
 
+func _empower_mob():
+	health += health * .2
+	damage += damage * .2
+	points += points * .2
 
 # Steers towards the target position. Use this to follow the player, or any
 # other point of interest for the mob.

@@ -14,10 +14,11 @@ resource_local_to_scene = true
 radius = 356.004
 
 [sub_resource type="RectangleShape2D" id=3]
-extents = Vector2( 76, 30 )
+extents = Vector2( 67, 19 )
 
 [node name="Sword" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
+orbit_distance = 230.0
 
 [node name="CollisionShape2D" parent="DetectionArea" index="0"]
 shape = SubResource( 1 )
@@ -34,7 +35,8 @@ texture = ExtResource( 3 )
 
 [node name="RayCast2D" type="RayCast2D" parent="." index="10"]
 
-[node name="HurtBox" type="Area2D" parent="." index="11"]
+[node name="HurtBox" type="Area2D" parent="." index="11" groups=["mobhurtbox"]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox" index="0"]
+position = Vector2( 2, 0 )
 shape = SubResource( 3 )

@@ -17,6 +17,7 @@ func _ready():
 	_button_quit.connect("pressed", self, "quit_game")
 
 func quit_game():
+	set_paused(not paused)
 	Events.emit_signal("player_died")
 	get_tree().change_scene("res://interface/MainMenu.tscn")
 
